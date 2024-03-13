@@ -114,11 +114,26 @@
       </div>
       <section class="mainVisual">
         <nav class="quick mw">
-          <a href="#">우리지역 생활문화공간</a>
-          <a href="#">생활문화 찾기</a>
-          <a href="#">경기상상캠퍼스</a>
-          <a href="#">온라인 문의</a>
+          <a href="#" class="quickMenu">우리지역 생활문화공간</a>
+          <a href="#" class="quickMenu">생활문화 찾기</a>
+          <a href="#" class="quickMenu">경기상상캠퍼스</a>
+          <a href="#" class="quickMenu">온라인 문의</a>
+          <a href="#" class="more">더보기<i class="fa-solid fa-plus"></i></a>
         </nav>
+        <div class="secondSwipe swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide">Slide 4</div>
+            <div class="swiper-slide">Slide 5</div>
+            <div class="swiper-slide">Slide 6</div>
+            <div class="swiper-slide">Slide 7</div>
+            <div class="swiper-slide">Slide 8</div>
+            <div class="swiper-slide">Slide 9</div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
       </section>
       <!-- /main -->
 
@@ -126,16 +141,4 @@
       <footer class="foot"></footer>
       <!-- /footer -->
     </div>
-    <script>
-      var swiper = new Swiper(".firstSwipe", {
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-          renderBullet: function (index, className) {
-            return '<span class="' + className + '">' + (index + 1) + "</span>";
-          },
-        },
-      });
-    </script>
-  </body>
 </html>

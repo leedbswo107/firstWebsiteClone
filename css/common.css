@@ -16,7 +16,7 @@
   --lightBlueColor: #f0f4ff;
   color: #144aaa;
   font-weight: bold;
-  overflow: hidden;
+  /* overflow: hidden; */
   --fontSizeBig: 1.312rem;
   --fontSizeMedium: 0.875rem;
   --fontSizeSmall: 0.857rem;
@@ -175,7 +175,15 @@ h1 a img {
 /* swipe banner 1 area end */
 
 /* mainVisual quick menu area start */
+.mainVisual {
+  position: relative;
+}
 .mainVisual .quick {
+  position: absolute;
+  top: -5%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
   display: flex;
   justify-content: space-around;
   background-color: var(--lightBlueColor);
@@ -186,7 +194,7 @@ h1 a img {
   font-size: 1.563rem;
   transition: 0.3s;
 }
-.mainVisual .quick a::after {
+.mainVisual .quick .quickMenu::after {
   color: var(--lightBlackColor);
   content: "\f061";
   display: inline-block;
@@ -195,8 +203,18 @@ h1 a img {
   margin-left: 15px;
   font-size: 1.4rem;
 }
-.mainVisual .quick a:hover {
+.mainVisual .quick .quickMenu:hover {
   color: var(--blueColor);
+}
+.mainVisual .quick .more {
+  display: none;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.mainVisual .secondSwipe {
+  background-color: var(--blueColor);
+  padding-top: 50%;
 }
 /* mainVisual quick menu area end */
 
@@ -211,6 +229,23 @@ h1 a img {
     display: flex;
   }
   .hd .ham a:focus .hd nav {
+    display: block;
+  }
+
+  .info1 {
+    display: none;
+  }
+  .firstSwipeList img {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .mainVisual .quick {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 100px;
+  }
+  .mainVisual .quick .more {
     display: block;
   }
 }
