@@ -268,3 +268,50 @@ h2 span {
   }
 }
 /* ======= media query area end ======= */
+.inner {
+  position: relative;
+}
+
+.moreCommon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 20px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
+.moreCommon::before,
+.moreCommon::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid var(--color-mb);
+  z-index: -1;
+  transition: 0.2s;
+  transition-timing-function: linear;
+}
+.moreCommon::before {
+  background-color: var(--color-wh);
+}
+.moreCommon::after {
+  background-color: var(--color-mb);
+  transform: scale(0);
+  opacity: 0;
+}
+.moreCommon:hover {
+  color: var(--color-wh);
+}
+.moreCommon:hover::after {
+  transform: scale(1);
+  opacity: 1;
+}
+.moreCommon:hover::before {
+  transform: scale(1.2);
+  opacity: 0;
+}
