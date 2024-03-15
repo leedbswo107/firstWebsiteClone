@@ -1,0 +1,270 @@
+h2 {
+  font-size: 40px;
+  font-family: "GmarketSansBold";
+}
+h2 span {
+  font-size: 16px;
+  font-family: "Noto Sans KR";
+}
+.eduMonth {
+  padding-top: 12rem;
+  padding-bottom: 12rem;
+  background-color: var(--color-mb);
+  color: var(--color-wh);
+  overflow: hidden;
+}
+.eduMonth h2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+  padding-bottom: 6rem;
+}
+
+/* ======= calendar area start ======= */
+.calendarArea {
+  display: flex;
+  font-family: "Noto Sans KR";
+  position: relative;
+  margin-bottom: 6rem;
+  opacity: 0.7;
+}
+.eduMonth .year {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  font-size: 40px;
+  line-height: 1;
+}
+.eduMonth .year strong {
+  font-family: "GmarketSansBold";
+  transition: 0.3s;
+}
+.eduMonth .year span {
+  font-size: 14px;
+  transition: 0.3s;
+}
+.eduMonth button {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: transparent;
+  transition: 0.3s;
+}
+.eduMonth button:nth-last-of-type(1)::after {
+  content: "\f104";
+  color: var(--color-wh);
+  position: absolute;
+  right: 200%;
+}
+.eduMonth button:nth-last-of-type(2)::before {
+  content: "\f105";
+  color: var(--color-wh);
+  position: absolute;
+  left: 200%;
+}
+.eduMonth button:hover::after,
+.eduMonth button:hover::before {
+  transform: scale(1.2);
+}
+.eduMonth .day {
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 30px;
+  opacity: 1;
+  transition: 0.3s;
+}
+.eduMonth .day li {
+  font-size: 16px;
+  text-decoration: underline;
+  text-align: center;
+  position: relative;
+}
+.calendarArea > a {
+  bottom: 200%;
+  position: absolute;
+  right: 10px;
+}
+.calendarArea > a::after {
+  content: "\2b";
+  margin-left: 5px;
+}
+
+.calendarArea .day li::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--color-wh);
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%) scale(0);
+  opacity: 0;
+  transition: 0.3s;
+}
+/* transform 순서도 중요 포지션을 먼저 잡아주고 동작할 것을 잡아주는게 포지션 오리진 센터를 지켜준다. */
+.calendarArea .day li:hover::before,
+.calendarArea .day li.on::before {
+  opacity: 1;
+  transform-origin: center;
+  transform: translateX(-50%) translateY(-50%) scale(1);
+}
+/* .day li:hover,
+.day .on {
+  border: 1px solid transparent;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-weight: bold;
+  opacity: 1;
+} */
+
+/* ======= calender area end ======= */
+
+/* ======= swiper area start ======= */
+.eduMonth .subSlide {
+  overflow: visible;
+}
+.subSlide ul li {
+  display: flex;
+  justify-content: center;
+}
+.eduMonth .card {
+  position: relative;
+  padding-top: 100%;
+  width: 70%;
+  background-size: cover;
+  border-radius: 2rem;
+  transition: 0.3s;
+}
+.eduMonth .swiper-slide-active > .card img {
+  transform: scale(1.2);
+  transform-origin: top;
+}
+.eduMonth .swiper-slide-active .info {
+  visibility: hidden;
+}
+.eduMonth .swiper-slide-active img,
+.eduMonth .card:hover img {
+  filter: brightness(30%);
+}
+.eduMonth .swiper-slide-active .desc,
+.eduMonth .card:hover .desc {
+  opacity: 1;
+}
+.eduMonth img {
+  top: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: 0.3s;
+}
+.card > .more {
+  color: transparent;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+}
+.desc {
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  width: 90%;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 20px;
+  transition: 0.3s;
+}
+.desc span:nth-of-type(1) {
+  margin: 0 auto;
+  padding: 0em 0.6em;
+  width: fit-content;
+  text-align: center;
+  border: 2px solid var(--color-wh);
+  border-radius: 2em;
+}
+.desc strong {
+  position: relative;
+  /* font-size: 25px; */
+  font-size: 1.563em;
+  text-align: center;
+  height: auto;
+  margin-bottom: 1rem;
+  white-space: nowrap;
+}
+.desc strong::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  height: 2px;
+  margin-top: 0.5rem;
+  background-color: var(--color-wh);
+}
+.info {
+  position: absolute;
+  top: 103%;
+  font-size: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 75%;
+  padding: 0 0 1.2em 0;
+  white-space: nowrap;
+}
+.info span {
+  color: lightskyblue;
+  margin-right: 5px;
+}
+.info strong {
+  font-size: 20px;
+  font-weight: bold;
+}
+/* ======= swiper area end ======= */
+
+/* ======= media query area start ======= */
+@media (max-width: 1100px) {
+  .calendarArea button {
+    opacity: 0;
+  }
+  .calendarArea .year {
+    flex-direction: row-reverse;
+  }
+  .calendarArea .year span {
+    font-size: 40px;
+    font-family: "GmarketSansBold";
+  }
+  .calendarArea .year strong::after,
+  .calendarArea .year span::after {
+    content: ".";
+  }
+  .calendarArea .day {
+    opacity: 0;
+  }
+  .card .desc {
+    font-size: 15px;
+  }
+  .card strong {
+    font-size: 18px;
+    height: auto;
+  }
+  .card .info {
+    font-size: 15px;
+    line-height: 1;
+  }
+}
+/* ======= media query area end ======= */
